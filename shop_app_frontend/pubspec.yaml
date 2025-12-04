@@ -1,0 +1,39 @@
+name: shop_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^6.0.0
+  http: ^1.5.0
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.2.2
+  image_picker: ^1.0.7
+  path_provider: ^2.1.0
+  flutter_stripe: ^10.0.0
+  intl: ^0.19.0
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - .env.development
+    - .env.production
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png" 
