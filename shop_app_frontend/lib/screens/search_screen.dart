@@ -36,7 +36,6 @@ class _SearchScreenState extends State<SearchScreen>
       });
     });
 
-    // ✅ Detectar cuando pierde el foco para contraer
     _searchFocusNode.addListener(() {
       if (!_searchFocusNode.hasFocus && _searchController.text.isEmpty) {
         setState(() {
@@ -72,7 +71,6 @@ class _SearchScreenState extends State<SearchScreen>
     );
   }
 
-  // ✅ Función para expandir/contraer el buscador
   void _toggleSearch() {
     setState(() {
       _isSearchExpanded = !_isSearchExpanded;
@@ -105,7 +103,6 @@ class _SearchScreenState extends State<SearchScreen>
                 if (!_isSearchExpanded)
                   Expanded(child: Text("TIENDA", style: TextStyles.saludoText)),
 
-                // Campo de búsqueda animado
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeInOut,
@@ -163,7 +160,6 @@ class _SearchScreenState extends State<SearchScreen>
             ),
             const SizedBox(height: 16),
 
-            // 📌 Tabs de Hombre/Mujer
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[200],
@@ -398,17 +394,14 @@ class ProductoCard extends StatelessWidget {
                       top: Radius.circular(16),
                     ),
                     child: Image.network(
-                      producto["fullUrl"] ?? "assets/images/default.jpg",
+                      producto["fullUrl"],
                       width: double.infinity,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
-                        return Container(
-                          color: Colors.grey[300],
-                          child: const Icon(
-                            Icons.image_not_supported,
-                            size: 48,
-                            color: Colors.grey,
-                          ),
+                        return Image.asset(
+                          "assets/images/default.jpg",
+                          width: double.infinity,
+                          fit: BoxFit.cover,
                         );
                       },
                     ),

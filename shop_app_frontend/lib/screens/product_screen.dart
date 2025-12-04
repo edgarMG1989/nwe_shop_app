@@ -203,6 +203,13 @@ class _ProductScreenState extends State<ProductScreen> {
                 height: 250,
                 width: double.infinity,
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    "assets/images/default.jpg",
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  );
+                },
               ),
             ),
             const SizedBox(height: 16),
@@ -355,7 +362,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     (tallaSeleccionada != null &&
                         cantidadSeleccionada != null &&
                         !agregandoCarrito)
-                    ? _agregarAlCarrito 
+                    ? _agregarAlCarrito
                     : null,
               ),
             ),

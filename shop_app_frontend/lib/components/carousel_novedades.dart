@@ -112,6 +112,13 @@ class _CarouselNovedadesState extends State<CarouselNovedades> {
                               height: 150,
                               width: double.infinity,
                               fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Image.asset(
+                                  "assets/images/default.jpg",
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                );
+                              },
                             ),
                           ),
 
@@ -180,7 +187,8 @@ class _CarouselNovedadesState extends State<CarouselNovedades> {
                       bottom: 10,
                       right: 10,
                       child: FloatingActionButton(
-                        heroTag: "${widget.dataKey}_carousel_tryon_${item['id']}",
+                        heroTag:
+                            "${widget.dataKey}_carousel_tryon_${item['id']}",
                         mini: true,
                         backgroundColor: Colors.black,
                         child: const Icon(

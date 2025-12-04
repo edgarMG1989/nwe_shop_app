@@ -29,6 +29,10 @@ export class SeguridadRepository {
 
     }
 
+    async postInsPerfil(body: any): Promise<any> {
+        return await this.query.spExecuteMulti(body, "[seguridad].[INS_USUARIO_SP]");
+    }
+
     async updatePerfil(body: any): Promise<any> {
         return await this.query.spExecuteMulti(body, "[seguridad].[UPD_USUARIO_SP]");
     }

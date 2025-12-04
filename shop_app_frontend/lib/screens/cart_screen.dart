@@ -417,11 +417,10 @@ class CartItemCard extends StatelessWidget {
                 height: 80,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    width: 80,
-                    height: 80,
-                    color: Colors.grey[300],
-                    child: const Icon(Icons.image, color: Colors.grey),
+                  return Image.asset(
+                    "assets/images/default.jpg",
+                    width: double.infinity,
+                    fit: BoxFit.cover,
                   );
                 },
               ),

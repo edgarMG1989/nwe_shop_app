@@ -232,6 +232,13 @@ class _ProductAdminScreenState extends State<ProductAdminScreen> {
                               child: Image.network(
                                 p["fullUrl"],
                                 fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Image.asset(
+                                    "assets/images/default.jpg",
+                                    width: double.infinity,
+                                    fit: BoxFit.cover,
+                                  );
+                                },
                               ),
                             )
                           : const Icon(Icons.image_not_supported),

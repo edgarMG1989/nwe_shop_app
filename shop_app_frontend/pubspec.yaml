@@ -32,6 +32,8 @@ flutter:
     - assets/images/
     - .env.development
     - .env.production
+    - assets/images/default.jpg
+
 
 flutter_launcher_icons:
   android: true

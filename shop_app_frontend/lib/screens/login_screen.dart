@@ -4,6 +4,7 @@ import 'package:shop_app/core/text_styles.dart';
 import 'package:shop_app/data/data_provider_seguridad.dart';
 import 'package:shop_app/models/usuario_model.dart';
 import 'package:shop_app/screens/home_screen.dart';
+import 'package:shop_app/screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -206,6 +207,32 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
+                ),
+              ),
+
+              SizedBox(height: 10),
+
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(color: Color(0xFF248FAA), width: 1.5),
+                    foregroundColor: Color(0xFF248FAA),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => RegisterScreen()),
+                    );
+                  },
+                  child: Text(
+                    "Registrarse",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ],

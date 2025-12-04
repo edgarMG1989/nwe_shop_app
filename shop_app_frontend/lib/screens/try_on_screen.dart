@@ -345,12 +345,13 @@ class _TryOnScreenState extends State<TryOnScreen> {
                         width: 80,
                         height: 80,
                         fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(
-                          width: 80,
-                          height: 80,
-                          color: Colors.grey.shade200,
-                          child: const Icon(Icons.image_not_supported),
-                        ),
+                        errorBuilder: (context, error, stackTrace) {
+                          return Image.asset(
+                            "assets/images/default.jpg",
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                          );
+                        },
                       ),
                     ),
                     const SizedBox(width: 15),

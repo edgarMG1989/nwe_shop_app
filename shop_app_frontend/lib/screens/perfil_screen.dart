@@ -118,7 +118,7 @@ class _PerfilScreenState extends State<PerfilScreen> {
 
     final resp = await FileServerService.uploadImage(
       _imagenSeleccionada!,
-      'USUARIO', 
+      'USUARIO',
     );
 
     setState(() => _subiendoImagen = false);
@@ -166,6 +166,7 @@ class _PerfilScreenState extends State<PerfilScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isAdmin = widget.usuario?.idRol == 1;
     return MainLayout(
       currentIndex: 3,
       usuario: usuario,
@@ -239,36 +240,68 @@ class _PerfilScreenState extends State<PerfilScreen> {
             ),
             const SizedBox(height: 30),
             // 🔹 Acceso rápido: Mis pedidos
-            Card(
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
+            if (!isAdmin)
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.shopping_bag,
+                    size: 30,
+                    color: Color(0xFF248FAA),
+                  ),
+                  title: const Text(
+                    "Mis pedidos",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                    color: Colors.grey,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => OrdersScreen(usuario: usuario),
+                      ),
+                    );
+                  },
+                ),
               ),
-              child: ListTile(
-                leading: Icon(
-                  Icons.shopping_bag,
-                  size: 30,
-                  color: Color(0xFF248FAA),
+            if (isAdmin)
+              Card(
+                elevation: 2,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                title: const Text(
-                  "Mis pedidos",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.shopping_bag,
+                    size: 30,
+                    color: Color(0xFF248FAA),
+                  ),
+                  title: const Text(
+                    "Actualizar rol",
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 18,
+                    color: Colors.grey,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => OrdersScreen(usuario: usuario),
+                      ),
+                    );
+                  },
                 ),
-                trailing: Icon(
-                  Icons.arrow_forward_ios,
-                  size: 18,
-                  color: Colors.grey,
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => OrdersScreen(usuario: usuario),
-                    ),
-                  );
-                },
               ),
-            ),
             const SizedBox(height: 25),
 
             // 🔹 Campos del formulario

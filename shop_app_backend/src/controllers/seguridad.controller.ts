@@ -14,6 +14,11 @@ export class SeguridadController {
         return await this.repository.login(body);
     }
 
+    @Post("/postInsPerfil")
+    async postInsPerfil(@Body() body: any) {
+        return await this.repository.postInsPerfil(body);
+    }
+
     @Post("/updatePerfil")
     async updatePerfil(@Body() body: any) {
         return await this.repository.updatePerfil(body);
