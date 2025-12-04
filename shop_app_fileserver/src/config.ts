@@ -42,7 +42,7 @@ export const config: Config = {
     },
     app: {
         port: 5113,
-        uploadDir: getUploadsPath(), 
+        uploadDir: "./uploads",// getUploadsPath(), 
         maxFileSize: 5242880, // 5MB
         allowedExtensions: ["jpg", "jpeg", "png", "gif", "webp"],
     },

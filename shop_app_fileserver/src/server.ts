@@ -1,7 +1,12 @@
 import app from "./app";
 import { config } from "./config";
+import fs from "fs";
 
 const PORT = config.app.port;
+
+if (!fs.existsSync(config.app.uploadDir)) {
+    fs.mkdirSync(config.app.uploadDir, { recursive: true });
+}
 
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`🚀 File Server corriendo en puerto ${PORT}`);
