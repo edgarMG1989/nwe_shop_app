@@ -43,7 +43,7 @@ export const config: Config = {
         password: "Mege2089",
         server: "edgar-db-server.database.windows.net",
         port: 1433,
-        database: "LAROPANOSTRAA-2025-12-4",
+        database: "LAROPANOSTRAA",
     },
     app: {
         port: 5113,
