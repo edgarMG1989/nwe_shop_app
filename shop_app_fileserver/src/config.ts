@@ -34,11 +34,16 @@ function getUploadsPath() {
 
 export const config: Config = {
     db: {
-        user: "sa",
+        // user: "sa",
+        // password: "Mege2089",
+        // server: "localhost",
+        // port: 1433,
+        // database: "LAROPANOSTRAA",
+        user: "edgarMG",
         password: "Mege2089",
-        server: "localhost",
+        server: "edgar-db-server.database.windows.net",
         port: 1433,
-        database: "LAROPANOSTRAA",
+        database: "LAROPANOSTRAA-2025-12-4",
     },
     app: {
         port: 5113,

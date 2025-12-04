@@ -1,11 +1,14 @@
 export default {
     development: {
         db: {
-            user: "sa",
+            // user: "sa",
+            // password: "Mege2089",
+            // server: "localhost",
+            user: "edgarMG",
             password: "Mege2089",
-            server: "localhost",
+            server: "edgar-db-server.database.windows.net",
             port: 1433,
-            database: "LAROPANOSTRAA",
+            database: "LAROPANOSTRAA-2025-12-4",
             options: {
                 encrypt: false,
                 trustServerCertificate: true,
@@ -20,11 +23,11 @@ export default {
     },
     production: {
         db: {
-            user: "sa",
+            user: "edgarMG",
             password: "Mege2089",
-            server: "localhost",
+            server: "edgar-db-server.database.windows.net",
             port: 1433,
-            database: "LAROPANOSTRAA",
+            database: "LAROPANOSTRAA-2025-12-4",
             options: {
                 encrypt: false,
                 trustServerCertificate: true,

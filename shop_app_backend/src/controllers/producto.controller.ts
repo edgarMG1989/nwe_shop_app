@@ -73,7 +73,7 @@ export class ProductoController {
             formData.append("description", req.body.description || "clothing item");
 
             const response = await axios.post(
-                'http://127.0.0.1:5001/tryon',
+                'https://tryon-server-ab5a.onrender.com/tryon',
                 formData,
                 {
                     headers: formData.getHeaders(),
