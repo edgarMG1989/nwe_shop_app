@@ -98,6 +98,56 @@ class SeguridadService {
     }
   }
 
+  static Future<Map<String, dynamic>> createPerfil(
+    String nombre,
+    String apellidoPaterno,
+    String telefono,
+    String correo,
+    String password, {
+    int? idDocumento,
+  }) async {
+    try {
+      final response = await http.post(
+        Uri.parse("${EnvConfig.baseUrl}/seguridad/postInsPerfil"),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'nombre': nombre,
+          'apellidoPaterno': apellidoPaterno,
+          'telefono': telefono,
+          'correo': correo,
+          'password': password,
+          "idDocumento": idDocumento,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        final responseData = jsonDecode(response.body);
+
+        final spResult = responseData[0][0];
+        final usuarioData = responseData[1][0];
+
+        if (spResult['success'] == 1) {
+          await _saveUserData(usuarioData);
+
+          return {
+            'success': true,
+            'message': spResult['message'] ?? 'Perfil creado',
+            'usuario': usuarioData,
+          };
+        } else {
+          return {
+            'success': false,
+            'message': spResult['message'] ?? 'Error desconocido',
+          };
+        }
+      }
+
+      return {'success': false, 'message': 'Error de conexión con el servidor'};
+    } catch (e) {
+      return {'success': false, 'message': 'Error: $e'};
+    }
+  }
+
   static Future<Map<String, dynamic>> updatePerfil(
     String nombre,
     String apellidoPaterno,
