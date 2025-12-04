@@ -10,9 +10,9 @@ export default {
             port: 1433,
             database: "LAROPANOSTRAA",
             options: {
-                encrypt: false,
-                trustServerCertificate: true,
-            },
+                encrypt: true,
+                trustServerCertificate: false
+            }
         },
         app: {
             port: 5112,
@@ -29,9 +29,9 @@ export default {
             port: 1433,
             database: "LAROPANOSTRAA",
             options: {
-                encrypt: false,
-                trustServerCertificate: true,
-            },
+                encrypt: true,
+                trustServerCertificate: false
+            }
         },
         app: {
             port: 5112,

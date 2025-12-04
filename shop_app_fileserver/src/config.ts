@@ -5,6 +5,10 @@ interface Config {
         server: string;
         port: number;
         database: string;
+        options?: {
+            encrypt: boolean;
+            trustServerCertificate: boolean;
+        };
     };
     app: {
         port: number;
@@ -44,6 +48,10 @@ export const config: Config = {
         server: "edgar-db-server.database.windows.net",
         port: 1433,
         database: "LAROPANOSTRAA",
+        options: {
+            encrypt: true,
+            trustServerCertificate: false
+        }
     },
     app: {
         port: 5113,
