@@ -8,7 +8,6 @@
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
   },
   "dependencies": {
-    "@types/form-data": "^2.5.2",
     "axios": "^1.13.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
@@ -25,6 +24,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
+    "@types/form-data": "^2.5.2",
     "@types/mssql": "^9.1.8",
     "@types/node": "^24.9.2",
     "nodemon": "^3.1.10",
