@@ -29,15 +29,18 @@ class _CarouselNovedadesState extends State<CarouselNovedades> {
   }
 
   Future<void> _loadData() async {
+    if (!mounted) return;
     setState(() => loading = true);
 
-    // ✅ Llamamos al nuevo servicio del backend
     List<dynamic> productos = await ProductoService.getProductosNovedad();
 
-    // Si el carousel es de "ofertas", filtramos
+    if (!mounted) return; // <-- necesario antes de usar setState
+
     if (widget.dataKey == "ofertas") {
       productos = productos.where((p) => p["precioOferta"] != null).toList();
     }
+
+    if (!mounted) return;
 
     setState(() {
       items = productos;
